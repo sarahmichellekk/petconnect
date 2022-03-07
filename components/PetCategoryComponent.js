@@ -1,26 +1,41 @@
-import React from "react";
+import React, { Component } from "react";
 import { FlatList } from "react-native";
 import { ListItem } from "react-native-elements";
+import { CATEGORIES } from "../shared/categories";
 
-function PetCategory(props) {
-  const renderPetInfoItem = ({ item }) => {
-    return (
-      <ListItem
-        title={item.name}
-        subtitle={item.description}
-        onPress={() => props.onPress(item.id)}
-        leftAvatar={{ source: require("./images/doug.jpg") }}
-      />
-    );
+class PetCategory extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      categories: CATEGORIES,
+    };
+  }
+
+  static NavigationOptions = {
+    title: "Available Pets",
   };
 
-  return (
-    <FlatList
-      data={props.categories}
-      renderItem={renderPetInfoItem}
-      keyExtractor={(item) => item.id.toString()}
-    />
-  );
+  render() {
+    const { navigate } = this.props.navigation;
+    const renderPetInfoItem = ({ item }) => {
+      return (
+        <ListItem
+          title={item.name}
+          subtitle={item.description}
+          onPress={() => navigate("PetInfo", { petId: item.id })}
+          leftAvatar={{ source: require("./images/doug.jpg") }}
+        />
+      );
+    };
+
+    return (
+      <FlatList
+        data={this.state.categories}
+        renderItem={renderPetInfoItem}
+        keyExtractor={(item) => item.id.toString()}
+      />
+    );
+  }
 }
 
 export default PetCategory;

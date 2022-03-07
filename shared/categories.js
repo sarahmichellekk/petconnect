@@ -16,7 +16,7 @@ export const CATEGORIES = [
     id: 2,
     name: "Birds",
     image: "assets/images/flowering-plants.jpg",
-    description: "Feathery friends that will make your heart sing.",
+    description: "Feathery friends that will make you sing.",
   },
   {
     id: 3,
