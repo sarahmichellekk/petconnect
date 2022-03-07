@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import PlantCare from "./PlantCareComponent";
+import PetCategory from "./PetCategoryComponent";
 import { CATEGORIES } from "../shared/categories";
-import PlantInfo from "./PlantInfoComponent";
+import PetInfo from "./PetInfoComponent";
 import { View } from "react-native";
 
 class Main extends Component {
@@ -20,11 +20,11 @@ class Main extends Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <PlantCare
+        <PetCategory
           categories={this.state.categories}
           onPress={(categoryId) => this.onCategorySelect(categoryId)}
         />
-        <PlantInfo
+        <PetInfo
           category={
             this.state.categories.filter(
               (category) => category.id === this.state.selectedCategory

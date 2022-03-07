@@ -1,30 +1,27 @@
 export const CATEGORIES = [
   {
     id: 0,
-    name: "Trailing Plants",
+    name: "Dogs",
     image: "assets/images/trailing-plant.jpg",
     description:
-      "Trailing plants grow vines of leaves. Plant them in hanging baskets for a dramatic effect.",
+      "The 'goodest' boys and girls are looking for a new best friend.",
   },
   {
     id: 1,
-    name: "Large Plants",
+    name: "Cats",
     image: "assets/images/large-plants.jpg",
-    description:
-      "Larger plants are a perfect addition to fill up an empty space in a room.",
+    description: "Find the purrrfect new family member.",
   },
   {
     id: 2,
-    name: "Flowering Plants",
+    name: "Birds",
     image: "assets/images/flowering-plants.jpg",
-    description:
-      "Flowering plants will add a welcome pop of color to your collection.",
+    description: "Feathery friends that will make your heart sing.",
   },
   {
     id: 3,
-    name: "Succulent Plants",
+    name: "Reptiles",
     image: "assets/images/succulent-plants.jpg",
-    description:
-      "Succulents are characterized by their ability to hold water in their leaves and stems.",
+    description: "A cold blooded buddy is sure to warm your heart.",
   },
 ];

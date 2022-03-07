@@ -2,7 +2,7 @@ import React from "react";
 import { Text, View } from "react-native";
 import { Card } from "react-native-elements";
 
-function RenderPlantInfo({ category }) {
+function RenderPetInfo({ category }) {
   if (category) {
     return (
       <Card
@@ -15,8 +15,8 @@ function RenderPlantInfo({ category }) {
   return <View />;
 }
 
-function PlantInfo(props) {
-  return <RenderPlantInfo category={props.category} />;
+function PetInfo(props) {
+  return <RenderPetInfo category={props.category} />;
 }
 
-export default PlantInfo;
+export default PetInfo;

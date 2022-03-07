@@ -2,8 +2,8 @@ import React from "react";
 import { FlatList } from "react-native";
 import { ListItem } from "react-native-elements";
 
-function PlantCare(props) {
-  const renderPlantCareItem = ({ item }) => {
+function PetCategory(props) {
+  const renderPetInfoItem = ({ item }) => {
     return (
       <ListItem
         title={item.name}
@@ -17,10 +17,10 @@ function PlantCare(props) {
   return (
     <FlatList
       data={props.categories}
-      renderItem={renderPlantCareItem}
+      renderItem={renderPetInfoItem}
       keyExtractor={(item) => item.id.toString()}
     />
   );
 }
 
-export default PlantCare;
+export default PetCategory;
