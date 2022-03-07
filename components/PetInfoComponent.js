@@ -5,9 +5,7 @@ import { Card } from "react-native-elements";
 function RenderPetInfo({ category }) {
   if (category) {
     return (
-      <Card
-        featuredTitle={category.name}
-        image={require("./images/pothos.jpg")}>
+      <Card featuredTitle={category.name} image={require("./images/lucy.jpg")}>
         <Text style={{ margin: 10 }}>{category.description}</Text>
       </Card>
     );

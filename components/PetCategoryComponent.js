@@ -9,7 +9,7 @@ function PetCategory(props) {
         title={item.name}
         subtitle={item.description}
         onPress={() => props.onPress(item.id)}
-        leftAvatar={{ source: require("./images/pothos.jpg") }}
+        leftAvatar={{ source: require("./images/doug.jpg") }}
       />
     );
   };
