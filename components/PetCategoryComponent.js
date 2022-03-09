@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { FlatList } from "react-native";
-import { ListItem } from "react-native-elements";
+import { ListItem, Tile } from "react-native-elements";
 import { CATEGORIES } from "../shared/categories";
 
 class PetCategory extends Component {
