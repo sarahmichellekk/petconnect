@@ -46,6 +46,7 @@ class PetInfo extends Component {
       return (
         <ListItem
           title={item.name}
+         // onPress={() => navigate(" ", { :  })}
           leftAvatar={{ source: require("./images/pete.jpg") }}
         />
       );
@@ -55,7 +56,7 @@ class PetInfo extends Component {
    <View>
        <RenderPetInfo category={category}/>
        <FlatList
-        data={petType} //TRYING TO FIGURE OUT HOW TO FILTER THIS TO GET AN ARRAY WHERE ANIMALS.TYPE === CATEGORIES.NAME
+        data={petType}
         renderItem={renderPetInfoCard}
         keyExtractor={(item) => item.id.toString()}
       />
