@@ -52,7 +52,7 @@ class PetInfo extends Component {
    <View>
        <RenderPetInfo category={category}/>
        <FlatList
-        data={this.state.animals}
+        data={this.state.animals} //TRYING TO FIGURE OUT HOW TO FILTER THIS TO GET AN ARRAY WHERE ANIMALS.TYPE === CATEGORIES.NAME
         renderItem={renderPetInfoCard}
         keyExtractor={(item) => item.id.toString()}
       />
