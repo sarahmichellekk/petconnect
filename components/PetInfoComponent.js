@@ -38,7 +38,10 @@ class PetInfo extends Component {
     const category = this.state.categories.filter(
       (category) => category.id === petId
     )[0];
+   
+    const petType = this.state.animals.filter((animal)=> animal.type === category.name);
 
+    const { navigate } = this.props.navigation;
     const renderPetInfoCard = ({ item }) => {
       return (
         <ListItem
@@ -52,7 +55,7 @@ class PetInfo extends Component {
    <View>
        <RenderPetInfo category={category}/>
        <FlatList
-        data={this.state.animals} //TRYING TO FIGURE OUT HOW TO FILTER THIS TO GET AN ARRAY WHERE ANIMALS.TYPE === CATEGORIES.NAME
+        data={petType} //TRYING TO FIGURE OUT HOW TO FILTER THIS TO GET AN ARRAY WHERE ANIMALS.TYPE === CATEGORIES.NAME
         renderItem={renderPetInfoCard}
         keyExtractor={(item) => item.id.toString()}
       />
