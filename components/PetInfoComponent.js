@@ -38,7 +38,6 @@ class PetInfo extends Component {
     const category = this.state.categories.filter(
       (category) => category.id === petId
     )[0];
-   
     const petType = this.state.animals.filter((animal)=> animal.type === category.name);
 
     const { navigate } = this.props.navigation;
@@ -46,7 +45,7 @@ class PetInfo extends Component {
       return (
         <ListItem
           title={item.name}
-         // onPress={() => navigate(" ", { :  })}
+         // onPress={() => navigate(" ", { :  })} will want this to take us to individual pet pages
           leftAvatar={{ source: require("./images/pete.jpg") }}
         />
       );

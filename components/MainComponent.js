@@ -1,9 +1,11 @@
 import React, { Component } from "react";
+import Home from "./HomeComponent";
 import PetCategory from "./PetCategoryComponent";
 import PetInfo from "./PetInfoComponent";
 import { View, Platform } from "react-native";
 import Constants from "expo-constants";
 import { createStackNavigator } from "react-navigation-stack";
+import { createDrawerNavigator } from 'react-navigation-drawer';
 import { createAppContainer } from "react-navigation";
 
 const PetCategoryNavigator = createStackNavigator(
@@ -25,7 +27,35 @@ const PetCategoryNavigator = createStackNavigator(
   }
 );
 
-const AppNavigator = createAppContainer(PetCategoryNavigator);
+const HomeNavigator = createStackNavigator(
+  {
+      Home: { screen: Home }
+  },
+  {
+      defaultNavigationOptions: {
+          headerStyle: {
+              backgroundColor: '##FF4500'
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+              color: '#fff'
+          }
+      }
+  }
+);
+
+const MainNavigator = createDrawerNavigator(
+  {
+      Home: { screen: HomeNavigator },
+      PetCategories: { screen: PetCategoryNavigator }
+  },
+  {
+      drawerBackgroundColor: '#CEC8FF'
+  }
+);
+
+
+const AppNavigator = createAppContainer(MainNavigator);
 
 class Main extends Component {
   render() {
