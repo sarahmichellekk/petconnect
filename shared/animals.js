@@ -12,14 +12,16 @@ export const ANIMALS = [
         name: "Patricia",
         type: "Birds",
         image: "./components/images/patricia.jpg",
-        featured: false
+        featured: false,
+        description: "Your family's eyes will sparkle at the first sight of me!"
     },
     {
         id: 2,
         name: "Pete",
         type: "Birds",
         image: "./components/images/pete.jpg",
-        featured: false
+        featured: false,
+        description: "Meet Pete! Pete is a shy male parrot that would do well in a home with other parrot his size or as a single bird. He tries to make friends with the other goffins and sulphur crested cockatoos here but none of them want to be his friend. Pete prefers to step up onto a towel, but with time and patience could start stepping up on a hand."
     },
     {
         id: 3,

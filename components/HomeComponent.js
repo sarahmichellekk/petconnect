@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import { View, Text, ScrollView, Image, StyleSheet } from 'react-native';
 import { Card } from 'react-native-elements';
 import { ANIMALS } from '../shared/animals';
 
@@ -38,6 +38,20 @@ class Home extends Component {
     render() {
         return (
            <ScrollView>
+               <Text style={styles.text}>Adopt Today!</Text>
+               <Image
+                    source={require('./images/takemehome.jpg')}
+                    style={styles.card}
+                />
+                <Image
+                    source={require('./images/highfive.jpg')}
+                    style={styles.card}
+                />
+                <Image
+                    source={require('./images/bestfriend.jpg')}
+                    style={styles.card}
+                />
+                <Text style={styles.text}>Featured New Pets!</Text>
                <RenderItem
                     item={this.state.animals.filter(animal => animal.featured)[0]}
                />
@@ -45,5 +59,22 @@ class Home extends Component {
         );
     }
 }
+
+const styles = StyleSheet.create({
+    
+    card: {
+        paddingTop: 50,
+        margin: 20,
+      width: 200,
+      height: 200,
+      display: "flex",
+      alignItems: "center"
+    },
+    text: {
+        fontSize:30,
+        display: "flex",
+        justifyContent: "center"
+    }
+  });
 
 export default Home;
