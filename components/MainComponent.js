@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import Home from "./HomeComponent";
+import Schedule from "./ScheduleComponent";
 import PetCategory from "./PetCategoryComponent";
 import PetInfo from "./PetInfoComponent";
-import { View, Platform } from "react-native";
+import IndividualPetInfo from "./IndividualPetComponent";
+import { View, Platform, StyleSheet } from "react-native";
+import { Icon } from 'react-native-elements';
 import Constants from "expo-constants";
 import { createStackNavigator } from "react-navigation-stack";
 import { createDrawerNavigator } from 'react-navigation-drawer';
@@ -12,6 +15,7 @@ const PetCategoryNavigator = createStackNavigator(
   {
     PetCategory: { screen: PetCategory },
     PetInfo: { screen: PetInfo },
+    IndividualPetInfo: {screen: IndividualPetInfo}
   },
   {
     initialRouteName: "PetCategory",
@@ -44,13 +48,69 @@ const HomeNavigator = createStackNavigator(
   }
 );
 
-const MainNavigator = createDrawerNavigator(
+const ScheduleNavigator = createStackNavigator(
   {
-      Home: { screen: HomeNavigator },
-      PetCategories: { screen: PetCategoryNavigator }
+      Home: { screen: Schedule }
   },
   {
-      drawerBackgroundColor: '#CEC8FF'
+      defaultNavigationOptions: {
+          headerStyle: {
+              backgroundColor: '##FF4500'
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+              color: '#fff'
+          }
+      }
+  }
+);
+
+const MainNavigator = createDrawerNavigator(
+  {
+      Home: { 
+              screen: HomeNavigator,
+              navigationOptions:{
+                drawerIcon: ({tintColor}) => (
+                  <Icon
+                      name='home'
+                      type='font-awesome'
+                      size={24}
+                      color={tintColor}
+                  />
+                ) 
+            }
+         },
+        
+      PetCategories: { 
+                        screen: PetCategoryNavigator,
+                        navigationOptions: {
+                          drawerIcon: ({tintColor}) => (
+                              <Icon
+                                  name='list'
+                                  type='font-awesome'
+                                  size={24}
+                                  color={tintColor}
+                              />
+                          )
+                      } 
+    },
+      ScheduleVisit: { screen: ScheduleNavigator,
+                        navigationOptions: {
+                          drawerLabel: 'Schedule a Visit',
+                          drawerIcon: ({tintColor}) => (
+                              <Icon
+                                  name='calendar'
+                                  type='font-awesome'
+                                  size={24}
+                                  color={tintColor}
+                              />
+                          )
+                      }
+                  }
+  },
+
+  {
+      drawerBackgroundColor: '#5A5F72'
   }
 );
 

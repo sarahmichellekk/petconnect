@@ -9,7 +9,7 @@ function RenderPetInfo(props) {
   if (category) {
     return (
       <View>
-        <Card featuredTitle={category.name} image={require("./images/lucy.jpg")}>
+        <Card featuredTitle={category.name} image={require("./images/takemehome.jpg")}>
           <Text style={{ margin: 10 }}>{category.description}</Text>
         </Card>
       </View>
@@ -45,7 +45,7 @@ class PetInfo extends Component {
       return (
         <ListItem
           title={item.name}
-         // onPress={() => navigate(" ", { :  })} will want this to take us to individual pet pages
+          onPress= {() => navigate("IndividualPetInfo", { animalId: item.id })}
           leftAvatar={{ source: require("./images/pete.jpg") }}
         />
       );
