@@ -43,11 +43,12 @@ class PetInfo extends Component {
     const { navigate } = this.props.navigation;
     const renderPetInfoCard = ({ item }) => {
       return (
-        <ListItem
-          title={item.name}
-          onPress= {() => navigate("IndividualPetInfo", { animalId: item.id })}
-          leftAvatar={{ source: require("./images/pete.jpg") }}
-        />
+       
+          <ListItem
+            title={item.name}
+            onPress= {() => navigate("IndividualPetInfo", { animalId: item.id })}
+            leftAvatar={{ source: require("./images/patricia.jpg") }}
+          />
       );
     };
 

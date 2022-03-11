@@ -11,7 +11,7 @@ export const ANIMALS = [
         id: 1,
         name: "Patricia",
         type: "Birds",
-        image: "./components/images/patricia.jpg",
+        image: './components/images/patricia.jpg',
         featured: false,
         description: "Your family's eyes will sparkle at the first sight of me!"
     },

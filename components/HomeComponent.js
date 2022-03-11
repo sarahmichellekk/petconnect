@@ -65,10 +65,12 @@ const styles = StyleSheet.create({
     card: {
         paddingTop: 50,
         margin: 20,
-      width: 200,
-      height: 200,
-      display: "flex",
-      alignItems: "center"
+        width: 200,
+        height: 200,
+        justifyContent: 'center',
+        alignItems: 'center',
+        flex:1,
+        
     },
     text: {
         fontSize:30,
