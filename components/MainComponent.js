@@ -39,7 +39,7 @@ const HomeNavigator = createStackNavigator(
   {
     defaultNavigationOptions: {
       headerStyle: {
-        backgroundColor: "##FF4500",
+        backgroundColor: "#FF4500",
       },
       headerTintColor: "#fff",
       headerTitleStyle: {
@@ -56,7 +56,7 @@ const ScheduleNavigator = createStackNavigator(
   {
     defaultNavigationOptions: {
       headerStyle: {
-        backgroundColor: "##FF4500",
+        backgroundColor: "#FF4500",
       },
       headerTintColor: "#fff",
       headerTitleStyle: {
@@ -73,7 +73,7 @@ const CommunityNavigator = createStackNavigator(
   {
     defaultNavigationOptions: {
       headerStyle: {
-        backgroundColor: "##FF4500",
+        backgroundColor: "#FF4500",
       },
       headerTintColor: "#fff",
       headerTitleStyle: {
