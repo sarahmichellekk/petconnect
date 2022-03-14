@@ -5,7 +5,8 @@ export const ANIMALS = [
         type: "Birds",
         image: "./components/images/freddy.jpg",
         featured: true,
-        description: "Rescue this adorable feathered friend. He loves triscuits and singing early in the morning."
+        description: "Rescue this adorable feathered friend. He loves triscuits and singing early in the morning.",
+        agency: "Exotic Birds of Denver"
     },
     {
         id: 1,
@@ -13,7 +14,8 @@ export const ANIMALS = [
         type: "Birds",
         image: './components/images/patricia.jpg',
         featured: false,
-        description: "Your family's eyes will sparkle at the first sight of me!"
+        description: "Your family's eyes will sparkle at the first sight of me!",
+        agency: "Denver Animal Shelter"
     },
     {
         id: 2,
@@ -21,21 +23,25 @@ export const ANIMALS = [
         type: "Birds",
         image: "./components/images/pete.jpg",
         featured: false,
-        description: "Meet Pete! Pete is a shy male parrot that would do well in a home with other parrot his size or as a single bird. He tries to make friends with the other goffins and sulphur crested cockatoos here but none of them want to be his friend. Pete prefers to step up onto a towel, but with time and patience could start stepping up on a hand."
+        description: "Meet Pete! Pete is a shy male parrot that would do well in a home with other parrot his size or as a single bird. He tries to make friends with the other goffins and sulphur crested cockatoos here but none of them want to be his friend. Pete prefers to step up onto a towel, but with time and patience could start stepping up on a hand.",
+        agency: "Exotic Birds of Denver"
     },
     {
         id: 3,
         name: "Sid",
         type: "Birds",
         image: "./components/images/sid.jpg",
-        featured: false
+        featured: false,
+        agency: "Denver Animal Shelter"
     },
     {
         id: 4,
         name: "Tally",
         type: "Birds",
         image: "./components/images/tally.jpg",
-        featured: false
+        featured: false,
+        agency: "Exotic Birds of Denver"
+
     },
     {
         id: 5,
