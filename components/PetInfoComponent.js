@@ -55,19 +55,17 @@ class PetInfo extends Component {
     };
 
     return (
-   <View>
-       <RenderPetInfo category={category}/>
-       <FlatList
-        data={petType}
-        renderItem={renderPetInfoCard}
-        keyExtractor={(item) => item.id.toString()}
-      /> 
-   </View>
-    
+      <View>
+          <RenderPetInfo category={category}/>
+          <FlatList
+            data={petType}
+            renderItem={renderPetInfoCard}
+            keyExtractor={(item) => item.id.toString()}
+          />
+      </View>
     );
   }
 }
-
 const styles = StyleSheet.create({
   list: {
     width: '100%',
@@ -94,7 +92,8 @@ export default PetInfo;
     renderItem={({ item }) => (
       <Image
         source={`url: ${item.image}`}
-        containerStyle={styles.item}/>
+        containerStyle={styles.item}
+        onPress= {() => navigate("IndividualPetInfo", { animalId: item.id })}/>
         )}
     keyExtractor={(item) => item.id.toString()}
-/> */}
+    /> */}
