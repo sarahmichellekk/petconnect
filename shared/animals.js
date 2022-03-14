@@ -3,7 +3,7 @@ export const ANIMALS = [
         id: 0,
         name: "Freddy",
         type: "Birds",
-        image: "./components/images/freddy.jpg",
+        image: require('../components/images/freddy.jpg'),
         featured: true,
         description: "Rescue this adorable feathered friend. He loves triscuits and singing early in the morning.",
         agency: "Exotic Birds of Denver"
@@ -12,7 +12,7 @@ export const ANIMALS = [
         id: 1,
         name: "Patricia",
         type: "Birds",
-        image: './components/images/patricia.jpg',
+        image: require('../components/images/patricia.jpg'),
         featured: false,
         description: "Your family's eyes will sparkle at the first sight of me!",
         agency: "Denver Animal Shelter"
@@ -21,7 +21,7 @@ export const ANIMALS = [
         id: 2,
         name: "Pete",
         type: "Birds",
-        image: "./components/images/pete.jpg",
+        image: require("../components/images/pete.jpg"),
         featured: false,
         description: "Meet Pete! Pete is a shy male parrot that would do well in a home with other parrot his size or as a single bird. He tries to make friends with the other goffins and sulphur crested cockatoos here but none of them want to be his friend. Pete prefers to step up onto a towel, but with time and patience could start stepping up on a hand.",
         agency: "Exotic Birds of Denver"
@@ -30,7 +30,7 @@ export const ANIMALS = [
         id: 3,
         name: "Sid",
         type: "Birds",
-        image: "./components/images/sid.jpg",
+        image: require('../components/images/sid.jpg'),
         featured: false,
         agency: "Denver Animal Shelter"
     },
@@ -38,7 +38,7 @@ export const ANIMALS = [
         id: 4,
         name: "Tally",
         type: "Birds",
-        image: "./components/images/tally.jpg",
+        image: require('../components/images/tally.jpg'),
         featured: false,
         agency: "Exotic Birds of Denver"
 
@@ -47,77 +47,77 @@ export const ANIMALS = [
         id: 5,
         name: "Chester",
         type: "Cats",
-        image: "./components/images/chester.jpg",
+        image: require('../components/images/chester.jpg'),
         featured: false
     },
     {
         id: 6,
         name: "Gracie",
         type: "Cats",
-        image: "./components/images/gracie.jpg",
+        image: require('../components/images/gracie.jpg'),
         featured: false
     },
     {
         id: 7,
         name: "Leah",
         type: "Cats",
-        image: "./components/images/leah.jpg",
+        image: require('../components/images/leah.jpg'),
         featured: true 
     },
     {
         id: 8,
         name: "Princess Caraboo",
         type: "Cats",
-        image: "./components/images/princesscaraboo.jpg",
+        image: require('../components/images/princesscaraboo.jpg'),
         featured: false
     },
     {
         id: 9,
         name: "Janis",
         type: "Cats",
-        image: "./components/images/janis.jpg",
+        image: require('../components/images/janis.jpg'),
         featured: false
     },
     {
         id: 10,
         name: "Sir Hank",
         type: "Cats",
-        image: "./components/images/sirhank.jpg",
+        image: require('../components/images/sirhank.jpg'),
         featured: false
     },
     {
         id: 11,
         name: "Bear",
         type: "Dogs",
-        image: "./components/images/bear.jpg",
+        image: require('../components/images/bear.jpg'),
         featured: false
     },
     {
         id: 12,
         name: "Benji",
         type: "Dogs",
-        image: "./components/images/benji.jpg",
+        image: require('../components/images/benji.jpg'),
         featured: false
     },
     {
         id: 13,
         name: "Chance",
         type: "Dogs",
-        image: "./components/images/chance.jpg",
+        image: require('../components/images/chance.jpg'),
         featured: false
     },
     {
         id: 14,
         name: "Doug",
         type: "Dogs",
-        image: "./components/images/doug.jpg",
+        image: require('../components/images/doug.jpg'),
         featured: false
     },
     {
         id: 15,
         name: "Janis",
         type: "Dogs",
-        image: "./components/images/janis.jpg",
+        image: require('../components/images/janis.jpg'),
         featured: true 
     
     },
@@ -125,49 +125,49 @@ export const ANIMALS = [
         id: 16,
         name: "Lucy",
         type: "Dogs",
-        image: "./components/images/lucy.jpg",
+        image: require('../components/images/lucy.jpg'),
         featured: false
     },
     {
         id: 17,
         name: "Sweetie",
         type: "Dogs",
-        image: "./components/images/sweetie.jpg",
+        image: require('../components/images/sweetie.jpg'),
         featured: false
     },
     {
         id: 18,
         name: "Sweetie",
         type: "Dogs",
-        image: "./components/images/sweetie.jpg",
+        image: require('../components/images/sweetie.jpg'),
         featured: false
     },
     {
         id: 19,
         name: "Fiona",
         type: "Reptiles",
-        image: "./components/images/fiona.jpg",
+        image: require('../components/images/fiona.jpg'),
         featured: false
     },
     {
         id: 20,
         name: "Gabe",
         type: "Reptiles",
-        image: "./components/images/gabe.jpg",
+        image: require('../components/images/gabe.jpg'),
         featured: false
     },
     {
         id: 21,
         name: "Pebbles",
         type: "Reptiles",
-        image: "./components/images/pebbles.jpg",
+        image: require('../components/images/pebbles.jpg'),
         featured: false
     },
     {
         id: 22,
         name: "Sam",
         type: "Reptiles",
-        image: "./components/images/sam.jpg",
+        image: require('../components/images/sam.jpg'),
         featured: false
     }
 ]

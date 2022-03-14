@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, View, FlatList } from "react-native";
+import { Text, View, FlatList, Image, StyleSheet } from "react-native";
 import { Card, ListItem } from "react-native-elements";
 import { CATEGORIES } from "../shared/categories";
 import { ANIMALS } from "../shared/animals";
@@ -43,12 +43,14 @@ class PetInfo extends Component {
     const { navigate } = this.props.navigation;
     const renderPetInfoCard = ({ item }) => {
       return (
-       
+        <View>
+          
           <ListItem
             title={item.name}
             onPress= {() => navigate("IndividualPetInfo", { animalId: item.id })}
-            leftAvatar={{ source: require("./images/patricia.jpg") }}
+            leftAvatar={{source: require("./images/patricia.jpg")}}
           />
+        </View>
       );
     };
 
@@ -59,11 +61,40 @@ class PetInfo extends Component {
         data={petType}
         renderItem={renderPetInfoCard}
         keyExtractor={(item) => item.id.toString()}
-      />
+      /> 
    </View>
     
     );
   }
 }
 
+const styles = StyleSheet.create({
+  list: {
+    width: '100%',
+    backgroundColor: '#000',
+  },
+  item: {
+    aspectRatio: 1,
+    width: '100%',
+    flex: 1,
+  },
+});
+
 export default PetInfo;
+
+
+// optional function for renderItem in flatlist: {({item}) => <Image source={item.image} onPress= {() => navigate("IndividualPetInfo", { animalId: item.id })} />}
+
+
+
+//an attempt at a FlatList that can display individual pictures
+{/* <FlatList
+    data={petType}
+    style={styles.list}
+    renderItem={({ item }) => (
+      <Image
+        source={`url: ${item.image}`}
+        containerStyle={styles.item}/>
+        )}
+    keyExtractor={(item) => item.id.toString()}
+/> */}

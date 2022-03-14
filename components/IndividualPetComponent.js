@@ -8,7 +8,7 @@ function RenderIndividualPet(props) {
   if (animal) {
     return (
       <View>
-        <Card featuredTitle={animal.name} image={require("./images/gracie.jpg")}>
+        <Card featuredTitle={animal.name} image={animal.image}>
             <Text style={{ margin: 20 }}>{animal.description}</Text>
             <Icon
                     name={props.favorite ? 'heart' : 'heart-o'}

@@ -3,23 +3,31 @@ import { View, Text, ScrollView, Image, StyleSheet } from 'react-native';
 import { Card } from 'react-native-elements';
 import { ANIMALS } from '../shared/animals';
 
-//I tried to use map() in the function below to make a card displaying each of the "featured" pets but couldn't get it to work. I didn't spend too much time since I wasn't sure what all we wanted on there anyway
+//Gotta figure out how to get images dynamically!!
 
-function RenderItem({item}) {
-    console.log(item);
-    if (item) {
-        return (
-            <Card
-                featuredTitle={item.name}
-                image={require('./images/bestfriend.jpg')}
-            >
-                <Text style={{margin: 10}}>
-                    {item.name}
-                </Text>
-            </Card>
-        );
-    }
-    return <View />;
+function RenderItem({items}) {
+    
+    return items.map((item)=>{
+        if (item) {
+            return (
+                <Card
+                    featuredTitle={item.name}
+                    image = {item.image}
+                >   
+                    <Text style={{margin: 10}}>
+                        {item.name}
+                    </Text>
+                    <Text style={{margin: 10}}>
+                        {`Agency: ${item.agency}`}
+                    </Text>
+                    <Text style={{margin: 10}}>
+                        {item.description}
+                    </Text>
+                </Card>
+            );
+        }
+        return <View />;
+    });
 }
 
 class Home extends Component {
@@ -36,6 +44,7 @@ class Home extends Component {
     }
 
     render() {
+        
         return (
            <ScrollView>
                <Text style={styles.text}>Adopt Today!</Text>
@@ -53,7 +62,7 @@ class Home extends Component {
                 />
                 <Text style={styles.text}>Featured New Pets!</Text>
                <RenderItem
-                    item={this.state.animals.filter(animal => animal.featured)[0]}
+                    items={this.state.animals.filter(animal => animal.featured)}
                />
            </ScrollView>
         );
