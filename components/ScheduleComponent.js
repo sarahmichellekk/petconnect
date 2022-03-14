@@ -42,12 +42,26 @@ class Schedule extends Component {
             })
         }
 
-        const agencyOptions = () => {
-            return ANIMALS.map((item)=>{
-                return(
-                    <Picker.Item label = {item.agency} value={item.agency}/>
-                )
-            })
+        // function removeDuplicates(arr) {
+        //     const removedDuplicates= arr.filter((item, 
+        //         index) => arr.indexOf(item) === index);
+        //     return removedDuplicates
+        // }
+
+        //trying to filter out repeated agency names in two functions below:
+
+        const removedDuplicates = () => {
+            return ANIMALS.filter((item, index) => ANIMALS.indexOf(item) === index); 
+        }
+
+        const agencyOptions = () => { () => {
+            
+                removedDuplicates.map((item)=>{
+                    return(
+                        <Picker.Item label = {item.agency} value={item.agency}/>
+                    )
+                })
+            }
         }
 
         return (
