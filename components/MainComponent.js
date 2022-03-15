@@ -5,6 +5,7 @@ import PetCategory from "./PetCategoryComponent";
 import PetInfo from "./PetInfoComponent";
 import Community from "./CommunityForumComponent";
 import IndividualPetInfo from "./IndividualPetComponent";
+import Favorites from "./FavoritesComponent";
 import { View, Platform, StyleSheet } from "react-native";
 import { Icon } from "react-native-elements";
 import Constants from "expo-constants";
@@ -66,6 +67,23 @@ const ScheduleNavigator = createStackNavigator(
   }
 );
 
+const FavoritesNavigator = createStackNavigator(
+  {
+    Home: { screen: Favorites },
+  },
+  {
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: "#FF4500",
+      },
+      headerTintColor: "#fff",
+      headerTitleStyle: {
+        color: "#fff",
+      },
+    },
+  }
+);
+
 const CommunityNavigator = createStackNavigator(
   {
     Home: { screen: Community },
@@ -103,6 +121,7 @@ const MainNavigator = createDrawerNavigator(
         ),
       },
     },
+
     ScheduleVisit: {
       screen: ScheduleNavigator,
       navigationOptions: {
@@ -110,6 +129,21 @@ const MainNavigator = createDrawerNavigator(
         drawerIcon: ({ tintColor }) => (
           <Icon
             name='calendar'
+            type='font-awesome'
+            size={24}
+            color={tintColor}
+          />
+        ),
+      },
+    },
+    
+    Favorites: {
+      screen: FavoritesNavigator,
+      navigationOptions: {
+        drawerLabel: "Favorites",
+        drawerIcon: ({ tintColor }) => (
+          <Icon
+            name='heart'
             type='font-awesome'
             size={24}
             color={tintColor}
