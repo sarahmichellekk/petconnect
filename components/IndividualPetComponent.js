@@ -28,7 +28,6 @@ function RenderIndividualPet(props) {
                     raised
                     reverse
                     onPress={() => navigate('Schedule')}
-                    //How do we get this onPress to navigate to the Schedule component??
                 />
             </View>
         </Card>
@@ -62,6 +61,7 @@ class IndividualPetInfo extends Component {
     const animal = this.state.animals.filter(
       (animal) => animal.id === animalId
     )[0];
+    const { navigate } = this.props.navigation;
   
 
 
@@ -71,6 +71,7 @@ class IndividualPetInfo extends Component {
             animal={animal}
             favorite={this.state.favorite}
             markFavorite={() => this.markFavorite()}
+            navigate = {navigate}
         />
        
     );

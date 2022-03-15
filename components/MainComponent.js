@@ -18,6 +18,7 @@ const PetCategoryNavigator = createStackNavigator(
     PetCategory: { screen: PetCategory },
     PetInfo: { screen: PetInfo },
     IndividualPetInfo: { screen: IndividualPetInfo },
+    Schedule: { screen: Schedule }
   },
   {
     initialRouteName: "PetCategory",
