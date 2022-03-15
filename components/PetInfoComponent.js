@@ -44,12 +44,13 @@ class PetInfo extends Component {
     const renderPetInfoCard = ({ item }) => {
       return (
         <View>
-          
           <ListItem
             title={item.name}
             onPress= {() => navigate("IndividualPetInfo", { animalId: item.id })}
             leftAvatar={{source: require("./images/patricia.jpg")}}
-          />
+  />
+        
+
         </View>
       );
     };
@@ -97,3 +98,5 @@ export default PetInfo;
         )}
     keyExtractor={(item) => item.id.toString()}
     /> */}
+
+    
