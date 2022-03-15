@@ -1,24 +1,36 @@
 import React, { Component } from "react";
-import { Text, View, FlatList } from "react-native";
+import { Text, View, FlatList, StyleSheet } from "react-native";
 import { Card, Icon, ListItem } from "react-native-elements";
 import { ANIMALS } from "../shared/animals";
 
 function RenderIndividualPet(props) {
   const {animal} = props;
+  const { navigate } = props;
   if (animal) {
     return (
       <View>
         <Card featuredTitle={animal.name} image={animal.image}>
             <Text style={{ margin: 20 }}>{animal.description}</Text>
-            <Icon
-                    name={props.favorite ? 'heart' : 'heart-o'}
+            <View style={styles.cardRow}>
+                <Icon
+                        name={props.favorite ? 'heart' : 'heart-o'}
+                        type='font-awesome'
+                        color='#f50'
+                        raised
+                        reverse
+                        onPress={() => props.favorite ? 
+                            console.log('Already set as a favorite') : props.markFavorite()}
+                    />
+                <Icon
+                    name='calendar'
                     type='font-awesome'
                     color='#f50'
                     raised
                     reverse
-                    onPress={() => props.favorite ? 
-                        console.log('Already set as a favorite') : props.markFavorite()}
+                    onPress={() => navigate('Schedule')}
+                    //How do we get this onPress to navigate to the Schedule component??
                 />
+            </View>
         </Card>
       </View>
     );
@@ -64,5 +76,14 @@ class IndividualPetInfo extends Component {
     );
   }
 }
+const styles = StyleSheet.create({
+    cardRow: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        flex: 1,
+        flexDirection: 'row',
+        margin: 30
+    },
+});
 
 export default IndividualPetInfo;
