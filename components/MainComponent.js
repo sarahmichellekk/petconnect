@@ -6,6 +6,7 @@ import PetInfo from "./PetInfoComponent";
 import Community from "./CommunityForumComponent";
 import IndividualPetInfo from "./IndividualPetComponent";
 import Favorites from "./FavoritesComponent";
+import Agencies from "./LocalAgencies"
 import { View, Platform, StyleSheet } from "react-native";
 import { Icon } from "react-native-elements";
 import Constants from "expo-constants";
@@ -85,6 +86,23 @@ const FavoritesNavigator = createStackNavigator(
   }
 );
 
+const LocalAgenciesNavigator = createStackNavigator(
+  {
+    Home: { screen: Agencies },
+  },
+  {
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: "#FF4500",
+      },
+      headerTintColor: "#fff",
+      headerTitleStyle: {
+        color: "#fff",
+      },
+    },
+  }
+);
+
 const CommunityNavigator = createStackNavigator(
   {
     Home: { screen: Community },
@@ -145,6 +163,21 @@ const MainNavigator = createDrawerNavigator(
         drawerIcon: ({ tintColor }) => (
           <Icon
             name='heart'
+            type='font-awesome'
+            size={24}
+            color={tintColor}
+          />
+        ),
+      },
+    },
+
+    Agencies: {
+      screen: LocalAgenciesNavigator,
+      navigationOptions: {
+        drawerLabel: "Agencies",
+        drawerIcon: ({ tintColor }) => (
+          <Icon
+            name='map'
             type='font-awesome'
             size={24}
             color={tintColor}
