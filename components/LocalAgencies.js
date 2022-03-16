@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, FlatList, Dimensions } from "react-native";
+import { StyleSheet, Text, View, FlatList, Linking } from "react-native";
 import MapView, { Marker } from 'react-native-maps';
 import { ListItem } from "react-native-elements";
 import { AGENCIES } from "../shared/agencies";
@@ -22,7 +22,7 @@ class Agencies extends Component {
       return (
         <ListItem
           title={item.name}
-          //onPress=
+          onPress={() => Linking.openURL(`${item.url}`)}
         />
       );
     };
