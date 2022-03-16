@@ -20,7 +20,7 @@ class Agencies extends Component {
     const { navigate } = this.props.navigation;
     const renderLocalAgencies = ({ item }) => {
       return (
-        <ListItem
+        <ListItem style={styles.listItem}
           title={item.name}
           onPress={() => Linking.openURL(`${item.url}`)}
         />
@@ -91,6 +91,11 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         width: '90%',
         height: '60%',
+    },
+    listItem: {
+        margin: 20,
+        borderColor: black,
+        backgroundColor:"#FF4500" 
     }
    
   });
