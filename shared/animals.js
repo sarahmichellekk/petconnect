@@ -4,6 +4,7 @@ export const ANIMALS = [
         name: "Freddy",
         type: "Birds",
         image: require('../components/images/freddy.jpg'),
+        avatarImage: "source: require('../components/images/freddy.jpg')",
         featured: true,
         description: "Rescue this adorable feathered friend. He loves triscuits and singing early in the morning.",
         agency: "Exotic Birds of Denver"
