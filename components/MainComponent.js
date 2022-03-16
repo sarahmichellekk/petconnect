@@ -6,7 +6,7 @@ import PetInfo from "./PetInfoComponent";
 import Community from "./CommunityForumComponent";
 import IndividualPetInfo from "./IndividualPetComponent";
 import Favorites from "./FavoritesComponent";
-import Agencies from "./LocalAgencies"
+import Agencies from "./LocalAgencies";
 import { View, Platform, StyleSheet } from "react-native";
 import { Icon } from "react-native-elements";
 import Constants from "expo-constants";
@@ -19,11 +19,11 @@ const PetCategoryNavigator = createStackNavigator(
     PetCategory: { screen: PetCategory },
     PetInfo: { screen: PetInfo },
     IndividualPetInfo: { screen: IndividualPetInfo },
-    Schedule: { screen: Schedule }
+    Schedule: { screen: Schedule },
   },
   {
     initialRouteName: "PetCategory",
-    defaultNavigationOptions: {
+    defaultNavigationOptions: ({ navigation }) => ({
       headerStyle: {
         backgroundColor: "#FF4500",
       },
@@ -31,7 +31,15 @@ const PetCategoryNavigator = createStackNavigator(
       headerTitleStyle: {
         color: "#fff",
       },
-    },
+      headerLeft: (
+        <Icon
+          name='list'
+          type='font-awesome'
+          iconStyle={styles.stackIcon}
+          onPress={() => navigation.toggleDrawer()}
+        />
+      ),
+    }),
   }
 );
 
@@ -40,7 +48,7 @@ const HomeNavigator = createStackNavigator(
     Home: { screen: Home },
   },
   {
-    defaultNavigationOptions: {
+    defaultNavigationOptions: ({ navigation }) => ({
       headerStyle: {
         backgroundColor: "#FF4500",
       },
@@ -48,7 +56,15 @@ const HomeNavigator = createStackNavigator(
       headerTitleStyle: {
         color: "#fff",
       },
-    },
+      headerLeft: (
+        <Icon
+          name='home'
+          type='font-awesome'
+          iconStyle={styles.stackIcon}
+          onPress={() => navigation.toggleDrawer()}
+        />
+      ),
+    }),
   }
 );
 
@@ -57,7 +73,7 @@ const ScheduleNavigator = createStackNavigator(
     Home: { screen: Schedule },
   },
   {
-    defaultNavigationOptions: {
+    defaultNavigationOptions: ({ navigation }) => ({
       headerStyle: {
         backgroundColor: "#FF4500",
       },
@@ -65,7 +81,15 @@ const ScheduleNavigator = createStackNavigator(
       headerTitleStyle: {
         color: "#fff",
       },
-    },
+      headerLeft: (
+        <Icon
+          name='calendar'
+          type='font-awesome'
+          iconStyle={styles.stackIcon}
+          onPress={() => navigation.toggleDrawer()}
+        />
+      ),
+    }),
   }
 );
 
@@ -74,7 +98,7 @@ const FavoritesNavigator = createStackNavigator(
     Home: { screen: Favorites },
   },
   {
-    defaultNavigationOptions: {
+    defaultNavigationOptions: ({ navigation }) => ({
       headerStyle: {
         backgroundColor: "#FF4500",
       },
@@ -82,7 +106,15 @@ const FavoritesNavigator = createStackNavigator(
       headerTitleStyle: {
         color: "#fff",
       },
-    },
+      headerLeft: (
+        <Icon
+          name='heart'
+          type='font-awesome'
+          iconStyle={styles.stackIcon}
+          onPress={() => navigation.toggleDrawer()}
+        />
+      ),
+    }),
   }
 );
 
@@ -91,7 +123,7 @@ const LocalAgenciesNavigator = createStackNavigator(
     Home: { screen: Agencies },
   },
   {
-    defaultNavigationOptions: {
+    defaultNavigationOptions: ({ navigation }) => ({
       headerStyle: {
         backgroundColor: "#FF4500",
       },
@@ -99,7 +131,15 @@ const LocalAgenciesNavigator = createStackNavigator(
       headerTitleStyle: {
         color: "#fff",
       },
-    },
+      headerLeft: (
+        <Icon
+          name='map'
+          type='font-awesome'
+          iconStyle={styles.stackIcon}
+          onPress={() => navigation.toggleDrawer()}
+        />
+      ),
+    }),
   }
 );
 
@@ -108,7 +148,7 @@ const CommunityNavigator = createStackNavigator(
     Home: { screen: Community },
   },
   {
-    defaultNavigationOptions: {
+    defaultNavigationOptions: ({ navigation }) => ({
       headerStyle: {
         backgroundColor: "#FF4500",
       },
@@ -116,7 +156,15 @@ const CommunityNavigator = createStackNavigator(
       headerTitleStyle: {
         color: "#fff",
       },
-    },
+      headerLeft: (
+        <Icon
+          name='info-circle'
+          type='font-awesome'
+          iconStyle={styles.stackIcon}
+          onPress={() => navigation.toggleDrawer()}
+        />
+      ),
+    }),
   }
 );
 
@@ -155,18 +203,13 @@ const MainNavigator = createDrawerNavigator(
         ),
       },
     },
-    
+
     Favorites: {
       screen: FavoritesNavigator,
       navigationOptions: {
         drawerLabel: "Favorites",
         drawerIcon: ({ tintColor }) => (
-          <Icon
-            name='heart'
-            type='font-awesome'
-            size={24}
-            color={tintColor}
-          />
+          <Icon name='heart' type='font-awesome' size={24} color={tintColor} />
         ),
       },
     },
@@ -176,12 +219,7 @@ const MainNavigator = createDrawerNavigator(
       navigationOptions: {
         drawerLabel: "Agencies",
         drawerIcon: ({ tintColor }) => (
-          <Icon
-            name='map'
-            type='font-awesome'
-            size={24}
-            color={tintColor}
-          />
+          <Icon name='map' type='font-awesome' size={24} color={tintColor} />
         ),
       },
     },
@@ -221,5 +259,33 @@ class Main extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  drawerHeader: {
+    backgroundColor: "#FF4500",
+    alignItems: "center",
+    flex: 1,
+    flexDirection: "row",
+  },
+  drawerHeaderText: {
+    color: "#fff",
+    fontSize: 24,
+    fontWeight: "bold",
+  },
+  drawerImage: {
+    margin: 10,
+    height: 60,
+    width: 60,
+  },
+
+  stackIcon: {
+    marginLeft: 10,
+    color: "#fff",
+    fontSize: 24,
+  },
+});
 
 export default Main;
