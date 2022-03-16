@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View, FlatList, Dimensions } from "react-native";
-import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
+import MapView, { Marker } from 'react-native-maps';
 import { ListItem } from "react-native-elements";
 import { AGENCIES } from "../shared/agencies";
 
@@ -26,32 +26,72 @@ class Agencies extends Component {
         />
       );
     };
+    const maxfundRegion = {
+        latitude: 39.73229,
+        longitude: -104.99659,
+        latitudeDelta: 0.01,
+        longitudeDelta: 0.01,
+      };
+    const dumbFriendsLeagueRegion = {
+        latitude: 39.67902,
+        longitude: -104.90254,
+        latitudeDelta: 0.01,
+        longitudeDelta: 0.01,
+      };
+    const rockyMountainFelineRescueLeagueRegion = {
+        latitude: 39.67325,
+        longitude: -104.99198,
+        latitudeDelta: 0.01,
+        longitudeDelta: 0.01,
+      };
+    const denverAnimalShelterRegion = {
+        latitude: 39.71556,
+        longitude: -105.00346,
+        latitudeDelta: 0.01,
+        longitudeDelta: 0.01,
+      };
 
     return (
-      <View style={styles.container}>
+      <View>
+        <Text>Check Out Your Local Pet Adoption Agencies!</Text>
         <FlatList
+            style={{marginBottom: 20}}
             data={this.state.agencies}
             renderItem={renderLocalAgencies}
             keyExtractor={(item) => item.id.toString()}
         />
-        <View >
+       
             <MapView 
-                style={{ flex: 1 }}
+                style={styles.map}
+                initialRegion={{
+                    latitude: 39.7,
+                    longitude: -104.95,
+                    latitudeDelta:.04987,
+                    longitudeDelta: .15
+                    
+                  }}
                 
-                showsUserLocation />
-        </View>
+                showsUserLocation 
+            >
+                    <Marker coordinate={maxfundRegion}/>
+                    <Marker coordinate={dumbFriendsLeagueRegion}/>
+                    <Marker coordinate={rockyMountainFelineRescueLeagueRegion}/>
+                    <Marker coordinate={denverAnimalShelterRegion}/>
+            </MapView>
+      
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
+    
+    map: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '90%',
+        height: '60%',
+    }
    
   });
 
