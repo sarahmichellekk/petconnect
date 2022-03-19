@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, ScrollView, Image, StyleSheet } from "react-native";
+import { View, Text, ScrollView, StyleSheet, Header } from "react-native";
 import { Card, Tile } from "react-native-elements";
 import { ANIMALS } from "../shared/animals";
 
@@ -36,22 +36,68 @@ class Home extends Component {
 
   render() {
     return (
-      <ScrollView>
+      <ScrollView style={styles.container}>
         <Text style={styles.text}>Adopt Today!</Text>
-        <Tile
-          title={"Search local agencies"}
-          imageSrc={require("./images/takemehome.jpg")}
-          style={styles.tile}></Tile>
 
         <Tile
-          title={"Schedule a visit"}
+          title={"1. Browse available pets"}
+          imageSrc={require("./images/smile.jpg")}
+          icon={{
+            name: "search",
+            type: "font-awesome",
+            size: 50,
+            color: "#fff",
+          }}
+          style={styles.tile}
+          featured></Tile>
+
+        <Tile
+          title={"2. Contact a local agency"}
+          imageSrc={require("./images/gracie.jpg")}
+          icon={{
+            name: "compass",
+            type: "font-awesome",
+            size: 50,
+            color: "#fff",
+          }}
+          style={styles.tile}
+          featured></Tile>
+
+        <Tile
+          title={"3. Schedule a visit"}
           imageSrc={require("./images/highfive.jpg")}
-          style={styles.tile}></Tile>
+          icon={{
+            name: "calendar",
+            type: "font-awesome",
+            size: 50,
+            color: "#fff",
+          }}
+          style={styles.tile}
+          featured></Tile>
 
         <Tile
-          title={"Find your new best friend"}
+          title={"4. Bring home your new best friend"}
           imageSrc={require("./images/bestfriend.jpg")}
-          style={styles.tile}></Tile>
+          icon={{
+            name: "heart",
+            type: "font-awesome",
+            size: 50,
+            color: "#fff",
+          }}
+          style={styles.tile}
+          featured></Tile>
+
+        <Tile
+          title={"5. Keep in touch with your community"}
+          imageSrc={require("./images/fiona.jpg")}
+          icon={{
+            name: "comment",
+            type: "font-awesome",
+            size: 50,
+            color: "#fff",
+          }}
+          style={styles.tile}
+          featured></Tile>
 
         <Text style={styles.text}>Featured New Pets!</Text>
         <RenderItem
@@ -63,6 +109,9 @@ class Home extends Component {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "#FFF5EE",
+  },
   card: {
     paddingTop: 50,
     margin: 20,
@@ -74,11 +123,13 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 30,
+    margin: 20,
     display: "flex",
     justifyContent: "center",
+    alignItems: "center",
   },
   tile: {
-    paddingTop: 50,
+    paddingBottom: 80,
     alignItems: "center",
     flex: 1,
   },

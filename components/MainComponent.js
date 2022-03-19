@@ -16,14 +16,26 @@ import { createAppContainer } from "react-navigation";
 
 const PetCategoryNavigator = createStackNavigator(
   {
-    PetCategory: { screen: PetCategory },
+    PetCategory: {
+      screen: PetCategory,
+      navigationOptions: ({ navigation }) => ({
+        headerLeft: (
+          <Icon
+            name='list'
+            type='font-awesome'
+            iconStyle={styles.stackIcon}
+            onPress={() => navigation.toggleDrawer()}
+          />
+        ),
+      }),
+    },
     PetInfo: { screen: PetInfo },
     IndividualPetInfo: { screen: IndividualPetInfo },
     Schedule: { screen: Schedule },
   },
   {
     initialRouteName: "PetCategory",
-    defaultNavigationOptions: ({ navigation }) => ({
+    defaultNavigationOptions: {
       headerStyle: {
         backgroundColor: "#FF4500",
       },
@@ -31,15 +43,7 @@ const PetCategoryNavigator = createStackNavigator(
       headerTitleStyle: {
         color: "#fff",
       },
-      headerLeft: (
-        <Icon
-          name='list'
-          type='font-awesome'
-          iconStyle={styles.stackIcon}
-          onPress={() => navigation.toggleDrawer()}
-        />
-      ),
-    }),
+    },
   }
 );
 

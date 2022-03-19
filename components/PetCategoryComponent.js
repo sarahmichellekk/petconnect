@@ -1,6 +1,14 @@
 import React, { Component } from "react";
-import { FlatList } from "react-native";
-import { ListItem, Tile } from "react-native-elements";
+import {
+  FlatList,
+  View,
+  ScrollView,
+  Image,
+  Text,
+  CardTitle,
+  StyleSheet,
+} from "react-native";
+import { ListItem, Card, Tile } from "react-native-elements";
 import { CATEGORIES } from "../shared/categories";
 
 class PetCategory extends Component {
@@ -19,12 +27,15 @@ class PetCategory extends Component {
     const { navigate } = this.props.navigation;
     const renderPetInfoItem = ({ item }) => {
       return (
-        <ListItem
-          title={item.name}
-          subtitle={item.description}
-          onPress={() => navigate("PetInfo", { petId: item.id })}
-          leftAvatar={{ source: require("./images/doug.jpg") }}
-        />
+        <ScrollView>
+          <Tile
+            onPress={() => navigate("PetInfo", { petId: item.id })}
+            title={item.name}
+            caption={item.description}
+            imageSrc={{ uri: item.image }}
+            featured
+          />
+        </ScrollView>
       );
     };
 
