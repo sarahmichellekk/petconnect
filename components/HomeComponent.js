@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { View, Text, ScrollView, StyleSheet, Header } from "react-native";
-import { Card, Tile } from "react-native-elements";
+import { Card, Tile, Icon } from "react-native-elements";
 import { ANIMALS } from "../shared/animals";
 
 //Gotta figure out how to get images dynamically!!
@@ -37,7 +37,22 @@ class Home extends Component {
   render() {
     return (
       <ScrollView style={styles.container}>
-        <Text style={styles.text}>Adopt Today!</Text>
+        <View style={styles.header}>
+          <Text style={styles.name}>
+            Pet Connect{" "}
+            <Icon name='paw' type='font-awesome' color='white' large />
+          </Text>
+
+          <Text
+            style={{
+              margin: 10,
+              color: "white",
+              size: 20,
+              fontWeight: "bold",
+            }}>
+            clever tagline
+          </Text>
+        </View>
 
         <Tile
           title={"1. Browse available pets"}
@@ -129,9 +144,20 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   tile: {
-    paddingBottom: 80,
+    paddingBottom: 60,
     alignItems: "center",
     flex: 1,
+  },
+  name: {
+    fontSize: 50,
+    fontWeight: "bold",
+    color: "white",
+  },
+  header: {
+    backgroundColor: "#FF4500",
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 30,
   },
 });
 

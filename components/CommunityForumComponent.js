@@ -1,3 +1,4 @@
+import { UserInterfaceIdiom } from "expo-constants";
 import React, { Component } from "react";
 import { Text, View, FlatList, StyleSheet, ScrollView } from "react-native";
 import { ListItem, Card, Icon, Avatar } from "react-native-elements";
@@ -25,7 +26,7 @@ class Community extends Component {
               <Text style={{ fontSize: 20 }}>{`Subject: ${item.title}`}</Text>
             </View>
             <ListItem
-              leftAvatar={{ name: "user-o", type: "font-awesome" }}
+              // leftAvatar={require("./images/gracie.jpg")}
               title={item.author}
               subtitle={item.question}
               onPress={() => navigate("ForumPost", { forumPost: item.id })}
