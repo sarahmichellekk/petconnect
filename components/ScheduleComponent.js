@@ -48,24 +48,35 @@ class Schedule extends Component {
       });
     };
 
-    // function removeDuplicates(arr) {
-    //     const removedDuplicates= arr.filter((item,
-    //         index) => arr.indexOf(item) === index);
-    //     return removedDuplicates
-    // }
 
     //trying to filter out repeated agency names in two functions below:
 
-    const removedDuplicates = () => {
-      return ANIMALS.filter((item, index) => ANIMALS.indexOf(item) === index);
-    };
+
+    function removeDuplicates(originalArray, objKey) {
+      var trimmedArray = [];
+      var values = [];
+      var value;
+    
+      for(var i = 0; i < originalArray.length; i++) {
+        value = originalArray[i][objKey];
+    
+        if(values.indexOf(value) === -1) {
+          trimmedArray.push(originalArray[i]);
+          values.push(value);
+        }
+      }
+    
+      return trimmedArray;
+    
+    }
+
+    const removedDuplicates = removeDuplicates(ANIMALS, 'agency');
 
     const agencyOptions = () => {
-      () => {
+        console.log(removedDuplicates);
         removedDuplicates.map((item) => {
           return <Picker.Item label={item.agency} value={item.agency} />;
         });
-      };
     };
 
     return (
