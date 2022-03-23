@@ -40,14 +40,14 @@ class Home extends Component {
         <View style={styles.header}>
           <Text style={styles.name}>
             Pet Connect{" "}
-            <Icon name='paw' type='font-awesome' color='white' large />
+            <Icon name='paw' type='font-awesome' color='white' size='large' />
           </Text>
 
           <Text
             style={{
               margin: 10,
               color: "white",
-              size: 20,
+              fontSize: 20,
               fontWeight: "bold",
             }}>
             clever tagline
