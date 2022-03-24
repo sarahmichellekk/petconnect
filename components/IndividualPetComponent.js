@@ -11,6 +11,7 @@ function RenderIndividualPet(props) {
       <View>
         <Card featuredTitle={animal.name} image={animal.image}>
             <Text style={{ margin: 20 }}>{animal.description}</Text>
+            <Text style={{ margin: 20 }}>{`Adoption Agency: ${animal.agency}`}</Text>
             <View style={styles.cardRow}>
                 <Icon
                         name={props.favorite ? 'heart' : 'heart-o'}

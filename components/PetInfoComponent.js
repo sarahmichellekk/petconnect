@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Text, View, FlatList, Image, StyleSheet } from "react-native";
-import { Card, ListItem, CardContainer, Tile } from "react-native-elements";
+import { Text, View, FlatList, Image, StyleSheet, TouchableOpacity } from "react-native";
+import { Card, CardItem, ListItem, CardContainer, Tile } from "react-native-elements";
 import { CATEGORIES } from "../shared/categories";
 import { ANIMALS } from "../shared/animals";
 
@@ -46,13 +46,15 @@ class PetInfo extends Component {
     const renderPetInfoCard = ({ item }) => {
       return (
         <View>
-          <ListItem
+          <Card image={item.image}
             style={styles.petInfoCard}
-            title={item.name}
-            onPress={() => navigate("IndividualPetInfo", { animalId: item.id })}
-            imageSrc={item.image}
             key={item}
+          >
+          <ListItem
+          title={`${item.name} -- Click here for more info!`}
+          onPress={() => navigate("IndividualPetInfo", { animalId: item.id })}
           />
+          </Card>
         </View>
       );
     };

@@ -35,6 +35,7 @@ class Home extends Component {
   };
 
   render() {
+    const { navigate } = this.props.navigation;
     return (
       <ScrollView style={styles.container}>
         <View style={styles.header}>
@@ -63,6 +64,7 @@ class Home extends Component {
             color: "#fff",
           }}
           style={styles.tile}
+          onPress={() => navigate("PetCategory")}
           featured></Tile>
 
         <Tile
@@ -75,6 +77,7 @@ class Home extends Component {
             color: "#fff",
           }}
           style={styles.tile}
+          onPress={() => navigate("Agencies")}
           featured></Tile>
 
         <Tile
@@ -87,6 +90,7 @@ class Home extends Component {
             color: "#fff",
           }}
           style={styles.tile}
+          onPress={() => navigate("Schedule")}
           featured></Tile>
 
         <Tile
@@ -111,6 +115,7 @@ class Home extends Component {
             color: "#fff",
           }}
           style={styles.tile}
+          onPress={() => navigate("Community")}
           featured></Tile>
 
         <Text style={styles.text}>Featured New Pets!</Text>
