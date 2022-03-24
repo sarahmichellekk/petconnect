@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, FlatList, Linking } from "react-native";
+import { StyleSheet, Text, View, FlatList, Linking, ScrollView } from "react-native";
 import MapView, { Marker } from "react-native-maps";
-import { ListItem } from "react-native-elements";
+import { ListItem, Card, Icon } from "react-native-elements";
 import { AGENCIES } from "../shared/agencies";
 
 class Agencies extends Component {
@@ -20,11 +20,23 @@ class Agencies extends Component {
     const { navigate } = this.props.navigation;
     const renderLocalAgencies = ({ item }) => {
       return (
-        <ListItem
-          style={styles.listItem}
-          title={item.name}
-          onPress={() => Linking.openURL(`${item.url}`)}
-        />
+        <ScrollView style={styles.container}>
+          <Card>
+            <ListItem
+              title={item.name}
+              onPress={() => Linking.openURL(`${item.url}`)}
+            />
+             <Icon
+                    name='calendar'
+                    type='font-awesome'
+                    color='#f50'
+                    raised
+                    reverse
+                    onPress={() => navigate('Schedule')}
+                />
+            
+        </Card>
+        </ScrollView>
       );
     };
     const maxfundRegion = {
@@ -53,29 +65,30 @@ class Agencies extends Component {
     };
 
     return (
-      <View style={styles.container}>
-        <Text style={{ fontSize: 18, fontWeight: "bold" }}>Check Out Your Local Pet Adoption Agencies!</Text>
+      <View  >
+        <Text style={{ fontSize: 18, fontWeight: "bold", margin: 15}}>Check Out Your Local Pet Adoption Agencies!</Text>
+      
         <FlatList
-          style={{ marginBottom: 20 }}
           data={this.state.agencies}
           renderItem={renderLocalAgencies}
           keyExtractor={(item) => item.id.toString()}
         />
-
-        <MapView
-          style={styles.map}
-          initialRegion={{
-            latitude: 39.7,
-            longitude: -104.95,
-            latitudeDelta: 0.04987,
-            longitudeDelta: 0.15,
-          }}
-          showsUserLocation>
-          <Marker coordinate={maxfundRegion} />
-          <Marker coordinate={dumbFriendsLeagueRegion} />
-          <Marker coordinate={rockyMountainFelineRescueLeagueRegion} />
-          <Marker coordinate={denverAnimalShelterRegion} />
-        </MapView>
+        <View style={styles.mapview}>
+          <MapView
+            style={styles.map}
+            initialRegion={{
+              latitude: 39.7,
+              longitude: -104.95,
+              latitudeDelta: 0.04987,
+              longitudeDelta: 0.15,
+            }}
+            showsUserLocation>
+            <Marker coordinate={maxfundRegion} />
+            <Marker coordinate={dumbFriendsLeagueRegion} />
+            <Marker coordinate={rockyMountainFelineRescueLeagueRegion} />
+            <Marker coordinate={denverAnimalShelterRegion} />
+          </MapView>
+        </View>
       </View>
     );
   }
@@ -85,17 +98,19 @@ const styles = StyleSheet.create({
   map: {
     alignItems: "center",
     justifyContent: "center",
-    width: "90%",
+    width: "100%",
     height: "60%",
   },
-  listItem: {
-    margin: 20,
-    borderColor: "black",
-    backgroundColor: "#FF4500",
-  },
+  
   container: {
     flex: 1,
-    backgroundColor: "#FFF5EE",
+    backgroundColor: "grey",
+    padding: 20
+  },
+  
+  mapview:{
+    padding: 20,
+    
   }
 
 });

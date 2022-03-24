@@ -108,7 +108,7 @@ class Schedule extends Component {
             {petOptions()}
           </Picker>
         </View>
-        <View style={styles.formRow}>
+        {/* <View style={styles.formRow}>
           <Text style={styles.formLabel}>Name of Agency</Text>
           <Picker
             style={styles.formItem}
@@ -118,7 +118,7 @@ class Schedule extends Component {
             }>
             {agencyOptions()}
           </Picker>
-        </View>
+        </View> */}
 
         <View style={styles.formRow}>
           <Text style={styles.formLabel}>Date</Text>
