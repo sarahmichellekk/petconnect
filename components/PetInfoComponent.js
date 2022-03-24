@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Text, View, FlatList, Image, StyleSheet } from "react-native";
-import { Card, ListItem } from "react-native-elements";
+import { Card, ListItem, CardContainer, Tile } from "react-native-elements";
 import { CATEGORIES } from "../shared/categories";
 import { ANIMALS } from "../shared/animals";
 
@@ -9,11 +9,11 @@ function RenderPetInfo(props) {
   if (category) {
     return (
       <View>
-        <Card
-          featuredTitle={category.name}
-          image={require("./images/takemehome.jpg")}>
-          <Text style={{ margin: 10 }}>{category.description}</Text>
-        </Card>
+        <Tile
+          title={category.name}
+          imageSrc={category.image}
+          caption={category.description}
+        />
       </View>
     );
   }
@@ -47,9 +47,11 @@ class PetInfo extends Component {
       return (
         <View>
           <ListItem
+            style={styles.petInfoCard}
             title={item.name}
             onPress={() => navigate("IndividualPetInfo", { animalId: item.id })}
-            leftAvatar={{ source: require("./images/patricia.jpg") }}
+            imageSrc={item.image}
+            key={item}
           />
         </View>
       );
@@ -76,6 +78,10 @@ const styles = StyleSheet.create({
     aspectRatio: 1,
     width: "100%",
     flex: 1,
+  },
+  petInfoCard: {
+    aspectRatio: 1,
+    width: "80%",
   },
 });
 

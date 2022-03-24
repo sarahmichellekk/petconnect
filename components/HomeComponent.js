@@ -39,15 +39,14 @@ class Home extends Component {
       <ScrollView style={styles.container}>
         <View style={styles.header}>
           <Text style={styles.name}>
-            Pet Connect{" "}
-            <Icon name='paw' type='font-awesome' color='white' size='large' />
+            Pet Connect <Icon name='paw' type='font-awesome' color='white' />
           </Text>
 
           <Text
             style={{
               margin: 10,
               color: "white",
-              fontSize: 20,
+
               fontWeight: "bold",
             }}>
             clever tagline

@@ -32,8 +32,9 @@ class PetCategory extends Component {
             onPress={() => navigate("PetInfo", { petId: item.id })}
             title={item.name}
             caption={item.description}
-            imageSrc={{ uri: item.image }}
+            imageSrc={item.image}
             featured
+            key={item}
           />
         </ScrollView>
       );

@@ -26,7 +26,7 @@ class Community extends Component {
               <Text style={{ fontSize: 20 }}>{`Subject: ${item.title}`}</Text>
             </View>
             <ListItem
-              // leftAvatar={require("./images/gracie.jpg")}
+              leftAvatar={{ source: require("./images/forum-user.jpg") }}
               title={item.author}
               subtitle={item.question}
               onPress={() => navigate("ForumPost", { forumPost: item.id })}
