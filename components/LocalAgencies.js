@@ -53,8 +53,8 @@ class Agencies extends Component {
     };
 
     return (
-      <View>
-        <Text>Check Out Your Local Pet Adoption Agencies!</Text>
+      <View style={styles.container}>
+        <Text style={{ fontSize: 18, fontWeight: "bold" }}>Check Out Your Local Pet Adoption Agencies!</Text>
         <FlatList
           style={{ marginBottom: 20 }}
           data={this.state.agencies}
@@ -93,6 +93,11 @@ const styles = StyleSheet.create({
     borderColor: "black",
     backgroundColor: "#FF4500",
   },
+  container: {
+    flex: 1,
+    backgroundColor: "#FFF5EE",
+  }
+
 });
 
 export default Agencies;
