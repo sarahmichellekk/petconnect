@@ -28,5 +28,10 @@ export const AGENCIES = [
         id: 5,
         name: "A Friend of Jack",
         url: "https://friendofjackrescue.com/"
+    },
+    {
+        id: 6,
+        name: "Colorado Reptile Humane Society",
+        url: "https://www.corhs.org/"
     }
 ]

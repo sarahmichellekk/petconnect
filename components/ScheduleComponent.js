@@ -186,6 +186,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     marginLeft: 30,
+    marginRight: 30,
     marginBottom: 0,
   },
   formLabel: {
