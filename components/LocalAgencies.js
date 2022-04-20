@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, FlatList, Linking, ScrollView } from "react-native";
+import { StyleSheet, Text, View, FlatList, Linking, ScrollView} from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import { ListItem, Card, Icon } from "react-native-elements";
 import { AGENCIES } from "../shared/agencies";
@@ -66,8 +66,9 @@ class Agencies extends Component {
 
     return (
       <View  >
-        <Text style={{ fontSize: 18, fontWeight: "bold", margin: 15}}>Check Out Your Local Pet Adoption Agencies!</Text>
-      
+        <View style={styles.header}>
+          <Text style={styles.name}>Check Out Your Local Pet Adoption Agencies!</Text>
+        </View>
         <FlatList
           data={this.state.agencies}
           renderItem={renderLocalAgencies}
@@ -111,8 +112,20 @@ const styles = StyleSheet.create({
   mapview:{
     padding: 20,
     
-  }
+  },
+  name: {
+    fontSize: 30,
+    fontWeight: "bold",
+    color: "white",
+  },
+  header: {
+      backgroundColor: "#A69685",
+      alignItems: "center",
+      justifyContent: "center",
+      padding: 30,
+  }, 
 
 });
+
 
 export default Agencies;

@@ -81,6 +81,9 @@ class Schedule extends Component {
 
     return (
       <ScrollView>
+        <View style={styles.header}>
+          <Text style={styles.name}>Schedule a Visit!</Text>
+        </View>
         <View style={styles.formRow}>
           <Text style={styles.formLabel}>Number of Visitors</Text>
           <Picker
@@ -196,6 +199,17 @@ const styles = StyleSheet.create({
   formItem: {
     flex: 2,
   },
+  name: {
+    fontSize: 30,
+    fontWeight: "bold",
+    color: "white",
+  },
+  header: {
+      backgroundColor: "#A69685",
+      alignItems: "center",
+      justifyContent: "center",
+      padding: 30,
+  }, 
 });
 
 export default Schedule;

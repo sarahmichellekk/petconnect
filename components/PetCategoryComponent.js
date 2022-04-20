@@ -41,13 +41,32 @@ class PetCategory extends Component {
     };
 
     return (
+      <View>
+      <View style={styles.header}>
+        <Text style={styles.name}>Available Pets!</Text>
+      </View>
       <FlatList
         data={this.state.categories}
         renderItem={renderPetInfoItem}
         keyExtractor={(item) => item.id.toString()}
       />
+      </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  name: {
+    fontSize: 30,
+    fontWeight: "bold",
+    color: "white",
+  },
+  header: {
+      backgroundColor: "#A69685",
+      alignItems: "center",
+      justifyContent: "center",
+      padding: 30,
+  }, 
+});
 
 export default PetCategory;
