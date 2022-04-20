@@ -31,7 +31,7 @@ class Favorites extends Component {
             <ListItem
                 title={item.name}
                 subtitle={item.description}
-                leftAvatar={{source: {uri: baseUrl + item.image}}}
+                leftAvatar={{ source: item.image }}
                 onPress={() => navigate('IndividualPetInfo', {animalId: item.id})}
             />
         );
