@@ -1,8 +1,11 @@
 import React, { Component } from "react";
-import { Text, View, FlatList, StyleSheet } from "react-native";
-import { ListItem } from "react-native-elements";
+import { Text, View, FlatList, StyleSheet, Alert } from "react-native";
+import { ListItem, Tile } from "react-native-elements";
 import { connect } from 'react-redux';
 import { baseUrl } from '../baseUrl';
+import { SwipeRow } from 'react-native-swipe-list-view';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { deleteFavorite } from '../redux/ActionCreators';
 import { ANIMALS } from '../shared/animals';
 
 //read data from state
@@ -10,6 +13,10 @@ const mapStateToProps = state => {
   return {
       favorites: state.favorites
   };
+};
+
+const mapDispatchToProps = {
+  deleteFavorite: animalId => deleteFavorite(animalId)
 };
 
 class Favorites extends Component {
@@ -28,28 +35,59 @@ class Favorites extends Component {
     const { navigate } = this.props.navigation;
     const renderFavoriteItem = ({item}) => {
         return (
+          //<SwipeRow rightOpenValue={-100} style={styles.swipeRow}>
+            <View>
+              <View style={styles.deleteView}>
+                  <TouchableOpacity
+                      style={styles.deleteTouchable}
+                      onPress={() =>
+                          Alert.alert(
+                              'Delete Favorite?',
+                              'Are you sure you wish to delete the favorite pet : ' +
+                                  item.name +
+                                  '?',
+                              [
+                                  {
+                                      text: 'Cancel',
+                                      onPress: () => console.log(item.name + 'Not Deleted'),
+                                      style: 'cancel'
+                                  },
+                                  {
+                                      text: 'OK',
+                                      onPress: () => this.props.deleteFavorite(item.id)
+                                  },
+                              ],
+                              { cancelable: false }
+                          )
+                      }
+                  >
+                        <Text style={styles.deleteText}>Delete</Text>
+                  </TouchableOpacity>
+                </View>
             <ListItem
                 title={item.name}
                 leftAvatar={{ source: item.image }}
                 onPress={() => navigate('IndividualPetInfo', {animalId: item.id})}
             />
+            </View>
+            //</SwipeRow>
+            
         );
     };
 
     return (
       <View>
-      <View style={styles.header}>
-        <Text style={styles.name}>My Favorite Pets</Text>
-      </View>
-      <FlatList
-          data={this.state.animals.filter(
-              animal => this.props.favorites.includes(animal.id)
-          )}
-          renderItem={renderFavoriteItem}
-          keyExtractor={item => item.id.toString()}
-      />
-       
-    </View>
+        <View style={styles.header}>
+          <Text style={styles.name}>My Favorite Pets</Text>
+        </View>
+        <FlatList
+            data={this.state.animals.filter(
+                animal => this.props.favorites.includes(animal.id)
+            )}
+            renderItem={renderFavoriteItem}
+            keyExtractor={item => item.id.toString()}
+        />
+       </View>
       
   );
 }
@@ -88,4 +126,4 @@ const styles = StyleSheet.create({
 });
 
 //connect component to redux
-export default connect(mapStateToProps)(Favorites);
+export default connect(mapStateToProps, mapDispatchToProps)(Favorites);
