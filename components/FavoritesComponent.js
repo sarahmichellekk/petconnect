@@ -35,8 +35,8 @@ class Favorites extends Component {
     const { navigate } = this.props.navigation;
     const renderFavoriteItem = ({item}) => {
         return (
-          //<SwipeRow rightOpenValue={-100} style={styles.swipeRow}>
-            <View>
+          <SwipeRow rightOpenValue={-100} style={styles.swipeRow}>
+            
               <View style={styles.deleteView}>
                   <TouchableOpacity
                       style={styles.deleteTouchable}
@@ -69,8 +69,8 @@ class Favorites extends Component {
                 leftAvatar={{ source: item.image }}
                 onPress={() => navigate('IndividualPetInfo', {animalId: item.id})}
             />
-            </View>
-            //</SwipeRow>
+          
+          </SwipeRow>
             
         );
     };

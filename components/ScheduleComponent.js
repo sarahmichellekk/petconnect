@@ -39,10 +39,11 @@ class Schedule extends Component {
       petName: "Select",
       agencyName: "Select",
     });
-  }
+  };
 
   render() {
     const petOptions = () => {
+      console.log(ANIMALS)
       return ANIMALS.map((item) => {
         return <Picker.Item label={item.name} value={item.name} />;
       });
@@ -71,10 +72,18 @@ class Schedule extends Component {
     // }
 
     // const removedDuplicates = removeDuplicates(ANIMALS, 'agency');
-
+    const filteredByAgency = ANIMALS.reduce((acc, current) => {
+      const x = acc.find(item => item.agency === current.agency);
+      if (!x) {
+        return acc.concat([current]);
+      } else {
+        return acc;
+      }
+    }, []);
+  
     const agencyOptions = () => {
-        console.log(removedDuplicates);
-        removedDuplicates.map((item) => {
+      console.log(filteredByAgency);
+        filteredByAgency.map((item) => {
           return <Picker.Item label={item.agency} value={item.agency} />;
         });
     };
@@ -111,7 +120,7 @@ class Schedule extends Component {
             {petOptions()}
           </Picker>
         </View>
-        {/* <View style={styles.formRow}>
+        <View style={styles.formRow}>
           <Text style={styles.formLabel}>Name of Agency</Text>
           <Picker
             style={styles.formItem}
@@ -121,7 +130,7 @@ class Schedule extends Component {
             }>
             {agencyOptions()}
           </Picker>
-        </View> */}
+        </View>
 
         <View style={styles.formRow}>
           <Text style={styles.formLabel}>Date</Text>
