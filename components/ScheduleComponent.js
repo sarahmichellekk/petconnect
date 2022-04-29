@@ -43,35 +43,11 @@ class Schedule extends Component {
 
   render() {
     const petOptions = () => {
-      console.log(ANIMALS)
       return ANIMALS.map((item) => {
         return <Picker.Item label={item.name} value={item.name} />;
       });
     };
 
-
-    //trying to filter out repeated agency names in two functions below:
-
-
-    // function removeDuplicates(originalArray, objKey) {
-    //   var trimmedArray = [];
-    //   var values = [];
-    //   var value;
-    
-    //   for(var i = 0; i < originalArray.length; i++) {
-    //     value = originalArray[i][objKey];
-    
-    //     if(values.indexOf(value) === -1) {
-    //       trimmedArray.push(originalArray[i]);
-    //       values.push(value);
-    //     }
-    //   }
-    
-    //   return trimmedArray;
-    
-    // }
-
-    // const removedDuplicates = removeDuplicates(ANIMALS, 'agency');
     const filteredByAgency = ANIMALS.reduce((acc, current) => {
       const x = acc.find(item => item.agency === current.agency);
       if (!x) {
@@ -200,13 +176,14 @@ const styles = StyleSheet.create({
     marginLeft: 30,
     marginRight: 30,
     marginBottom: 0,
+    height: 120,
   },
   formLabel: {
-    fontSize: 25,
-    flex: 2,
+    fontSize: 20,
+    flex: 1,
   },
   formItem: {
-    flex: 2,
+    flex: 1,
   },
   name: {
     fontSize: 30,
