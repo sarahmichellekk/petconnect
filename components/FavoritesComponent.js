@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Text, View, FlatList, StyleSheet, Alert } from "react-native";
-import { ListItem, Tile } from "react-native-elements";
+import { ListItem, Tile,Card } from "react-native-elements";
 import { connect } from 'react-redux';
 import { baseUrl } from '../baseUrl';
 import { SwipeRow } from 'react-native-swipe-list-view';
@@ -35,8 +35,7 @@ class Favorites extends Component {
     const { navigate } = this.props.navigation;
     const renderFavoriteItem = ({item}) => {
         return (
-          <SwipeRow rightOpenValue={-100} style={styles.swipeRow}>
-            
+          <View>
               <View style={styles.deleteView}>
                   <TouchableOpacity
                       style={styles.deleteTouchable}
@@ -64,13 +63,13 @@ class Favorites extends Component {
                         <Text style={styles.deleteText}>Delete</Text>
                   </TouchableOpacity>
                 </View>
-            <ListItem
-                title={item.name}
-                leftAvatar={{ source: item.image }}
+            <Card
+                featuredTitle={item.name}
+                image={item.image}
                 onPress={() => navigate('IndividualPetInfo', {animalId: item.id})}
             />
           
-          </SwipeRow>
+          </View>
             
         );
     };
@@ -98,12 +97,14 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       justifyContent: 'flex-end',
       alignItems: 'center',
-      flex: 1
+      flex: 1,
+      marginTop: 5
   },
   deleteTouchable: {
       backgroundColor: 'red',
-      height: '85%',
-      justifyContent: 'center'
+      height: '100%',
+      justifyContent: 'center',
+      marginTop: 10
   },
   deleteText: {
       color: 'white',
@@ -118,7 +119,7 @@ const styles = StyleSheet.create({
     color: "white",
   },
   header: {
-      backgroundColor: "#A69685",
+      backgroundColor: "#FF4500",
       alignItems: "center",
       justifyContent: "center",
       padding: 30,
