@@ -21,7 +21,7 @@ class Agencies extends Component {
     const renderLocalAgencies = ({ item }) => {
       return (
         <ScrollView style={styles.container}>
-          <Card>
+          <Card style={styles.card} >
             <ListItem
               title={item.name}
               onPress={() => Linking.openURL(`${item.url}`)}
@@ -100,17 +100,20 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     width: "100%",
-    height: "60%",
+    height: "70%",
+  },
+  card: {
+    margin: 0
   },
   
   container: {
     flex: 1,
-    backgroundColor: "grey",
+    backgroundColor: "#D3D3D3",
     padding: 20
   },
   
   mapview:{
-    padding: 20,
+    padding: 10,
     
   },
   name: {
